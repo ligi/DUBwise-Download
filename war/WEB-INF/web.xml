@@ -15,6 +15,13 @@
         <servlet-name>file_sender</servlet-name>
         <servlet-class>org.ligi.dubwise.download.FileSenderServlet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>meta_info</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.MetaInfoServlet</servlet-class>
+    </servlet>
+
+
     <servlet>
         <servlet-name>download_by_code</servlet-name>
         <servlet-class>org.ligi.dubwise.download.EnterCodeServlet</servlet-class>
@@ -37,6 +44,12 @@
     <servlet-mapping>
         <servlet-name>install_request</servlet-name>
         <url-pattern>/install_request</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>meta_info</servlet-name>
+        <url-pattern>/meta_info/*</url-pattern>
     </servlet-mapping>
 
 
