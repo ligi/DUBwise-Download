@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+
+    <servlet>
+        <servlet-name>download_builds</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.DownloadBuildsServlet</servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>file_sender</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.FileSenderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>download_by_code</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.EnterCodeServlet</servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>device_info</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.PostDeviceInfos</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>install_request</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.GetInstallRecordServlet</servlet-class>
+    </servlet>
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>install_request</servlet-name>
+        <url-pattern>/install_request</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>download_by_code</servlet-name>
+        <url-pattern>/download_by_code</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>device_info</servlet-name>
+        <url-pattern>/device_info</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>file_sender</servlet-name>
+        <url-pattern>/midlet_download/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>download_builds</servlet-name>
+        <url-pattern>/download_builds</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

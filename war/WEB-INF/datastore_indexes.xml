@@ -1,0 +1,5 @@
+<datastore-indexes xmlns="http://appengine.google.com/ns/datastore-indexes/1.0">
+  <datastore-index kind="BuildRecord" ancestor="false">
+    <property name="code" direction="asc"/>
+  </datastore-index>
+</datastore-indexes>
