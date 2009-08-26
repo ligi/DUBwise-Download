@@ -17,7 +17,6 @@ public class PersistentDevice {
     @Persistent
     private Date date;
 
-
     @Persistent 
     private String user_agent;
 
@@ -25,74 +24,85 @@ public class PersistentDevice {
     private String platform;
 
     @Persistent
-    private String encoding="";
+    private String encoding;
 
     @Persistent
-    private String locale="";
+    private String locale;
 
     @Persistent
-    private String configuration="";
+    private String configuration;
 
     @Persistent
-    private String profiles="";
+    private String profiles;
 
     @Persistent
-    private String hostname="";
+    private String hostname;
 
     @Persistent
-    private String location_api_version="";
+    private String location_api_version;
 
     @Persistent
-    private String sensor_api_version="";
+    private String sensor_api_version;
   
     @Persistent
-    private String comports="";
+    private String comports;
 
     @Persistent
-    private int canvas_width=-1;
+    private Integer canvas_width;
 
     @Persistent
-    private int canvas_height=-1;
+    private Integer canvas_height;
 
     @Persistent
-    private int canvas_full_width=-1;
+    private Integer canvas_full_width;
 
     @Persistent    
-    private int canvas_full_height=-1;
+    private Integer canvas_full_height;
 
     @Persistent
-    private int rms_avail=-1;
+    private Integer rms_avail;
 
     @Persistent
-    private long total_mem=-1;
+    private Long total_mem;
 
     @Persistent
-    private long free_mem=-1;
+    private Long free_mem;
 
     @Persistent
-    private boolean locationprovider=false;
+    private Boolean locationprovider;
 
     @Persistent
-    private boolean devicecontrol=false;
+    private Boolean devicecontrol;
 
     @Persistent
-    private boolean bluetooth=false;
+    private Boolean bluetooth;
 
     @Persistent
-    private boolean cldc11=false;
+    private Boolean cldc11;
 
     @Persistent
-    private boolean fileapi=false;
+    private Boolean fileapi;
 
     @Persistent
-    private boolean sensorapi=false;
+    private Boolean sensorapi;
     
     @Persistent
-    private boolean symbian=false;
+    private Boolean symbian;
 
     @Persistent
-    private boolean jsr179=false;
+    private Boolean jsr179;
 
+    @Persistent
+    private Boolean snd_wav;
+
+    @Persistent
+    private Boolean snd_mp3_16kbit;
+
+    @Persistent
+    private Boolean snd_mp3_32kbit;
+
+    @Persistent
+    private Boolean snd_mp3_64kbit;
 
 
     public PersistentDevice( Date date,String user_agent) {
