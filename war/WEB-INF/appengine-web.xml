@@ -8,6 +8,9 @@
     </system-properties>
     <static-files>
      <include path="/**.png"/>
+     <include path="/**.jpeg"/>
+     <include path="/**.jpg"/>
+     <include path="/**.gif"/>
      <include path="/**.css"/>
     </static-files>
 </appengine-web-app>
