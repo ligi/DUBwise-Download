@@ -3,6 +3,6 @@
   <cron>
     <url>/download_builds</url>
     <description>Download Jar Jad's</description>
-    <schedule>every 30 minutes</schedule>
+    <schedule>every monday 12:00</schedule>
   </cron>
 </cronentries>
