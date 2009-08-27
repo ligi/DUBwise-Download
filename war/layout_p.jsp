@@ -25,7 +25,7 @@ Released   : 20081230
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>DUBwise Downloader</title>
+<title>DUBwise Download</title>
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen" />
 </head>
 <body>
@@ -41,11 +41,9 @@ Released   : 20081230
 
 	<div id="menu">
 		<ul>
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Get the Installer</a></li>
-			<li><a href="#">Download via Download Code</a></li>
-			<li><a href="#">Services</a></li>
-			<li><a href="#">Contact Us</a></li>
+			<li ><a href="/index.jsp">Home</a></li>
+			<li ><a href="/get_installer.jsp">Get the Installer</a></li>
+			<li><a href="/download_by_code.jsp">Get DUBwise via Download Code</a></li>
 		</ul>
 	</div>
 
