@@ -9,23 +9,36 @@
 <%@ page import="org.ligi.dubwise.download.BuildRecord" %>
 <%@ page import="org.ligi.dubwise.download.PMF" %>
 
-<html>
-  <head>
-    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-  </head>
-
-  <body>
-
-<h1>DUBwise Stats</h1>
-
-
-
+<%@ include file='layout_p.jsp' %>
 <%
-    PersistenceManager pm = PMF.get().getPersistenceManager();
-    String query = "select from " + BuildRecord.class.getName() + " where update_flag==true ";
-// 	int res= pm.prepare(query).countEntities() ;
-Query q = pm.newQuery( BuildRecord.class);
-int count = 0; 
+PersistenceManager pm = PMF.get().getPersistenceManager();
+ String query;
+ Query q;
+ 
+ boolean show_device_records=false;
+ boolean show_build_records=false;	
+ boolean show_code_records=false;	
+ 
+ try {
+     show_device_records=request.getParameter("what").equals("device_records");
+     show_build_records=request.getParameter("what").equals("build_records");
+     show_code_records=request.getParameter("what").equals("code_records");
+
+ }
+ catch(Exception e) { }
+%>
+
+
+<% if (show_build_records) { %>
+
+
+Build Records:
+<%
+    
+    query = "select from " + BuildRecord.class.getName() + " where update_flag==true ";
+    // 	int res= pm.prepare(query).countEntities() ;
+    q = pm.newQuery( BuildRecord.class);
+    int count = 0; 
 
     List< BuildRecord> brs = (List< BuildRecord>) pm.newQuery(query).execute();
 
@@ -36,8 +49,10 @@ int count = 0;
 
 ---<%= ""+ count %><br/>
 
+<% } %>
 
 
+<% if (show_code_records) { %>
 <%
 
      query = "select from " + CodeRecorder.class.getName() + " order by date desc range 0,5";
@@ -52,11 +67,16 @@ int count = 0;
 <br/>
 
 
-<% } %>qq
+<% } %>
+
+<% } %>
 
 
------
+<% if (show_device_records) { %>
 
+<div class="post">
+ <h1 class="title">Devices:</h1>
+ <div class="entry">
 
 <%                            
      query = "select from " + PersistentDevice.class.getName() + " order by date desc range 0,5";
@@ -71,7 +91,9 @@ int count = 0;
 
 
 <% } %>
+</div></div>
+<% } %>
+
+<%@ include file='layout_s.jsp' %>
 
 
-  </body>
-</html>
