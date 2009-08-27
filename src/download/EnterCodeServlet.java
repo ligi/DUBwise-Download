@@ -58,7 +58,7 @@ public class EnterCodeServlet extends HttpServlet {
 	if (dubwise_props.set_code(req.getParameter("install_code")))
 	    resp.sendRedirect("http://ligi.selfip.org/ligi/dubwise_dl/tags/"+(	(req.getParameter("down_jar_btn")==null)?dubwise_props.getJADFileName():dubwise_props.getJARFileName()) );
 	else
-	    resp.sendRedirect("index.jsp?wrongcode=true");
+	    resp.sendRedirect("download_by_code.jsp?wrongcode=true");
     }
 
 
