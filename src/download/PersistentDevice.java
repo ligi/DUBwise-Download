@@ -369,6 +369,10 @@ public class PersistentDevice {
 	    "\nbluetooth="+bluetooth+
 	    "\ndevicecontrol="+devicecontrol+
 	    "\njsr179="+jsr179+
+	    "\nsnd_wav="+snd_wav+
+	    "\nsnd_mp3_16kbit="+nd_mp3_16kbit+
+	    "\nsnd_mp3_32kbit="+nd_mp3_32kbit+
+	    "\nsnd_mp3_64kbit="+nd_mp3_64kbit+
 	    "";
     }
 

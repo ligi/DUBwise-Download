@@ -60,7 +60,6 @@ public class PostDeviceInfos extends HttpServlet {
 	device_record.setSensorAPI( check_bool_param(req.getParameter("sensorapi")));
 	device_record.setJSR179( check_bool_param(req.getParameter("jsr179")));
 
-
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
             pm.makePersistent(device_record);
