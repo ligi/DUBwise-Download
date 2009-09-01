@@ -7,6 +7,7 @@
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 
+<%@ page import="org.ligi.dubwise.download.SourceInfoProvider" %>
 <%@ page import="org.ligi.dubwise.download.PMF" %>
 
 
