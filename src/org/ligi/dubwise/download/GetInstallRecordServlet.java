@@ -28,7 +28,7 @@ public class GetInstallRecordServlet extends HttpServlet {
 	// store in Database
         Date date = new Date();
         InstallRecord install_record = new InstallRecord(req.getParameter("code"),date,new Long(req.getParameter("device_id")));
-
+        install_record.setInstallerSource(req.getParameter("source"));
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
             pm.makePersistent(install_record);
@@ -46,9 +46,9 @@ public class GetInstallRecordServlet extends HttpServlet {
             msg.addRecipient(Message.RecipientType.TO,
                              new InternetAddress("ligi@ligi.de"));
             msg.setSubject("DUBwise Install Request");
-            msg.setText("code:"+req.getParameter("install_code"));
+            msg.setText("code:"+req.getParameter("code") + " id: "+install_record.getId() + "source:" +req.getParameter("source") ) ;
             Transport.send(msg);
-	    log.log(Level.INFO,"Email Send code" + req.getParameter("install_code") );
+	    log.log(Level.INFO,"Email Send code" + req.getParameter("code") );
 
         } catch (Exception e) {
 	    log.log(Level.WARNING,"exception while sending mail " +e );
