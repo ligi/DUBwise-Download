@@ -35,30 +35,41 @@ public class EnterCodeServlet extends HttpServlet {
             pm.close();
         }
 
-	// send mail
-	Properties props = new Properties();
-        Session session = Session.getDefaultInstance(props, null);
 
-        try {
-            Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("marcus.bueschleb@googlemail.com"));
-            msg.addRecipient(Message.RecipientType.TO,
-                             new InternetAddress("ligi@ligi.de"));
-            msg.setSubject("DUBwise Downloader Download");
-            msg.setText("code:"+req.getParameter("install_code"));
-            Transport.send(msg);
-	    log.log(Level.INFO,"Email Send code" + req.getParameter("install_code") );
-
-        } catch (Exception e) {
-	    log.log(Level.WARNING,"exception while sending mail " +e );
-            // dont care if failing
-        } 
- 
 	DUBwiseProps dubwise_props=new DUBwiseProps();
 	if (dubwise_props.set_code(req.getParameter("install_code")))
-	    resp.sendRedirect("http://ligi.selfip.org/ligi/dubwise_dl/tags/"+(	(req.getParameter("down_jar_btn")==null)?dubwise_props.getJADFileName():dubwise_props.getJARFileName()) );
+	    {
+		String url_to_redirect=SourceInfoProvider.getStableDownloadURL();
+		
+		if (req.getParameter("down_jar_btn")==null)
+				url_to_redirect+=dubwise_props.getJARFileName();
+		else
+				url_to_redirect+=dubwise_props.getJADFileName();
+		
+		// send mail
+		Properties props = new Properties();
+	     Session session = Session.getDefaultInstance(props, null);
+
+	        try {
+	            Message msg = new MimeMessage(session);
+	            msg.setFrom(new InternetAddress("marcus.bueschleb@googlemail.com"));
+	            msg.addRecipient(Message.RecipientType.TO,
+	                             new InternetAddress("ligi@ligi.de"));
+	            msg.setSubject("DUBwise Downloader Download");
+	            msg.setText("code: "+req.getParameter("install_code") +"\nfile" + url_to_redirect);
+	            Transport.send(msg);
+		    log.log(Level.INFO,"Email Send code" + req.getParameter("install_code") );
+
+	        } catch (Exception e) {
+		    log.log(Level.WARNING,"exception while sending mail " +e );
+	            // dont care if failing
+	        } 
+	        
+	    	resp.sendRedirect(url_to_redirect);
+	    	
+	    }
 	else
-	    resp.sendRedirect("download_by_code.jsp?wrongcode=true");
+	    resp.sendRedirect("download_by_code.jsp?wrongcode="+req.getParameter("install_code")) ;
     }
 
 
