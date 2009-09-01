@@ -227,7 +227,7 @@ public class DownloadBuildsServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
-                throws IOException {
+    throws IOException {
 
 
 
