@@ -95,7 +95,49 @@ public class PersistentDevice {
     @Persistent
     private Boolean snd_wav;
 
-    @Persistent
+    public Boolean getSnd_wav() {
+		return snd_wav;
+	}
+
+
+	public void setSnd_wav(Boolean sndWav) {
+		snd_wav = sndWav;
+	}
+
+
+	public Boolean getSnd_mp3_16kbit() {
+		return snd_mp3_16kbit;
+	}
+
+
+	public void setSnd_mp3_16kbit(Boolean sndMp3_16kbit) {
+		snd_mp3_16kbit = sndMp3_16kbit;
+	}
+
+
+	public Boolean getSnd_mp3_32kbit() {
+		return snd_mp3_32kbit;
+	}
+
+
+	public void setSnd_mp3_32kbit(Boolean sndMp3_32kbit) {
+		snd_mp3_32kbit = sndMp3_32kbit;
+	}
+
+
+	public Boolean getSnd_mp3_64kbit() {
+		return snd_mp3_64kbit;
+	}
+
+
+	public void setSnd_mp3_64kbit(Boolean sndMp3_64kbit) {
+		snd_mp3_64kbit = sndMp3_64kbit;
+	}
+
+
+
+
+	@Persistent
     private Boolean snd_mp3_16kbit;
 
     @Persistent
@@ -370,9 +412,9 @@ public class PersistentDevice {
 	    "\ndevicecontrol="+devicecontrol+
 	    "\njsr179="+jsr179+
 	    "\nsnd_wav="+snd_wav+
-	    "\nsnd_mp3_16kbit="+nd_mp3_16kbit+
-	    "\nsnd_mp3_32kbit="+nd_mp3_32kbit+
-	    "\nsnd_mp3_64kbit="+nd_mp3_64kbit+
+	    "\nsnd_mp3_16kbit="+snd_mp3_16kbit+
+	    "\nsnd_mp3_32kbit="+snd_mp3_32kbit+
+	    "\nsnd_mp3_64kbit="+snd_mp3_64kbit+
 	    "";
     }
 
