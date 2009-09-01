@@ -58,8 +58,12 @@ public class PostDeviceInfos extends HttpServlet {
 	device_record.setBluetooth( check_bool_param(req.getParameter("bluetooth")));
 	device_record.setSymbian( check_bool_param(req.getParameter("symbian")));
 	device_record.setSensorAPI( check_bool_param(req.getParameter("sensorapi")));
-	device_record.setJSR179( check_bool_param(req.getParameter("jsr179")));
-
+	device_record.setJSR179(check_bool_param(req.getParameter("jsr179")));
+	device_record.setSnd_wav(check_bool_param(req.getParameter("snd_wav")));
+	device_record.setSnd_mp3_16kbit(check_bool_param(req.getParameter("snd_mp3_16kbit")));
+	device_record.setSnd_mp3_32kbit(check_bool_param(req.getParameter("snd_mp3_32kbit")));
+	device_record.setSnd_mp3_64kbit(check_bool_param(req.getParameter("snd_mp3_64kbit")));
+	
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
             pm.makePersistent(device_record);
