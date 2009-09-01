@@ -8,6 +8,7 @@
     </system-properties>
     <static-files>
      <include path="/**.png"/>
+     <include path="/**.ico"/>
      <include path="/download/**.jar"/>
      <include path="/download/**.jad"/>
      <include path="/**.jpeg"/>
