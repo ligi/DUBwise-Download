@@ -27,6 +27,11 @@
         <servlet-class>org.ligi.dubwise.download.EnterCodeServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>refresh_download_source</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.RefreshDownloadSourceServlet</servlet-class>
+    </servlet>
+
 
     <servlet>
         <servlet-name>device_info</servlet-name>
@@ -39,7 +44,15 @@
     </servlet>
 
 
+    <servlet>
+        <servlet-name>notify</servlet-name>
+        <servlet-class>org.ligi.dubwise.download.NotifyServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>refresh_download_source</servlet-name>
+        <url-pattern>/refresh_download_source</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>install_request</servlet-name>
@@ -61,6 +74,11 @@
     <servlet-mapping>
         <servlet-name>device_info</servlet-name>
         <url-pattern>/device_info</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>notify</servlet-name>
+        <url-pattern>/notify</url-pattern>
     </servlet-mapping>
 
 
