@@ -21,8 +21,16 @@ public class InstallRecord {
     private Long device_id;
 
     @Persistent
-    private int install_result=-1;
+    private String install_result;
 
+    @Persistent
+    private String delete_result;
+
+
+    @Persistent
+    private String installer_source;
+
+    
     @Persistent
     private Date date;
 
@@ -67,13 +75,31 @@ public class InstallRecord {
     }
 
 
-    public void setInstallResult(int install_result) {
+    public void setInstallResult(String install_result) {
         this.install_result=install_result;
     }
 
-    public int getInstallResult() {
+    public String getInstallResult() {
         return install_result;
     }
+
+
+    public void setDeleteResult(String delete_result) {
+        this.delete_result=delete_result;
+    }
+
+    public String getDeleteResult() {
+        return delete_result;
+    }
+
+	public void setInstallerSource(String installer_source) {
+		this.installer_source = installer_source;
+	}
+
+	public String getInstallerSource() {
+		return installer_source;
+	}
+
 
 
 }
