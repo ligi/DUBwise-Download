@@ -28,7 +28,7 @@ public class MetaInfoServlet extends HttpServlet {
      String  requested_info =uri_path[uri_path.length-1];
      if( requested_info.equals("dl_url"))
 	 {
-	     response.getWriter().println("http://ligi.selfip.org/ligi/");
+    	 response.getWriter().println("http://ligi.selfip.org/ligi/");
 	 }
 	 else
 	     response.getWriter().println("?");
