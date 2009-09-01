@@ -8,8 +8,18 @@
 <%@ page import="org.ligi.dubwise.download.CodeRecorder" %>
 <%@ page import="org.ligi.dubwise.download.BuildRecord" %>
 <%@ page import="org.ligi.dubwise.download.PMF" %>
+<%@ page import="org.ligi.dubwise.download.SourceInfoProvider" %>
+<%@ page import="org.ligi.dubwise.download.InstallRecord" %>
+
+
 
 <%@ include file='layout_p.jsp' %>
+
+
+<a href="?what=install_records">Installations</a> |
+<a href="?what=device_records">Devices</a> |
+<a href="?what=build_records">Builds</a> |
+
 <%
 PersistenceManager pm = PMF.get().getPersistenceManager();
  String query;
@@ -18,11 +28,13 @@ PersistenceManager pm = PMF.get().getPersistenceManager();
  boolean show_device_records=false;
  boolean show_build_records=false;	
  boolean show_code_records=false;	
+ boolean show_install_records=false;	
  
  try {
      show_device_records=request.getParameter("what").equals("device_records");
      show_build_records=request.getParameter("what").equals("build_records");
      show_code_records=request.getParameter("what").equals("code_records");
+     show_install_records=request.getParameter("what").equals("install_records");
 
  }
  catch(Exception e) { }
@@ -87,6 +99,33 @@ Build Records:
 %>
 <%= d.getPlatform() %>
 <%= d.getDate() %><br/>
+<br/>
+
+
+<% } %>
+</div></div>
+<% } %>
+
+
+
+<% if (show_install_records) { %>
+
+<div class="post">
+ <h1 class="title">Installations:</h1>
+ <div class="entry">
+
+<%                            
+     query = "select from " + InstallRecord.class.getName() ; //+ " order by date desc range 0,5";
+    List<InstallRecord> i_records = (List<InstallRecord>) pm.newQuery(query).execute();
+
+  for (InstallRecord i : i_records) {
+PersistentDevice i_device=pm.getObjectById(PersistentDevice.class, i.getDeviceId());
+
+%>
+<b>via</b> <%=i.getInstallerSource() %>
+<b>with Result</b> <%=i.getInstallResult() %>
+<b>on</b><a href="device_info.jsp?id=<%=i_device.getId() %>"><%=i_device.getPlatform() %></a> 
+
 <br/>
 
 
