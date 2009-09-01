@@ -1,3 +1,4 @@
+<%@ page import="org.ligi.dubwise.download.SourceInfoProvider" %>
 
 	</div>
 	<!-- end #content -->
@@ -16,6 +17,16 @@
 					</form>
 				</li> -->
 				<li>
+					<h2>Provided Versions</h2>
+					
+					<ul>
+
+						<li><b>Installer: </b>0.12</li>	
+						<li><b>DUBwise: </b><%= SourceInfoProvider.act_version() %>	</li>	
+					</ul>
+				</li>
+
+				<li>
 					<h2>Links</h2>
 					<ul>
 
@@ -26,11 +37,21 @@
 
 					</ul>
 				</li>
-			</ul>
-		</div>
-	<img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"
+
+
+
+
+				<li>
+					<h2>Credits</h2>
+					
+					</div>
+					<img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"
 alt="Powered by Google App Engine" />
-		</div>
+	     	       	   		</div>
+				</li>
+
+			</ul>
+
 	</div>
 	<!-- end #sidebar -->
 	<div style="clear:both; margin:0;"></div>
@@ -61,7 +82,7 @@ href="http://www.statcounter.com/free_hit_counter.html"
 target="_blank"><img class="statcounter"
 src="http://c.statcounter.com/4944502/0/4311d1f6/1/"
 alt="counter customizable" ></a></div></noscript>
-<!-- End of StatCounter Code -->
+ <!-- End of StatCounter Code -->
 
 </body>
 </html>
