@@ -24,14 +24,43 @@ public class FileSenderServlet extends HttpServlet {
  public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
       throws  IOException {
-      
-     if (request.getRequestURI().endsWith(".jar"))
-	 response.setContentType("application/java-archive");
+     
+	 String uri= request.getRequestURI();
+	 int id= Integer.parseInt(uri.split("/") [uri.split("/").length-1].split("\\.")[0]);
+	 
+
+	 PersistenceManager pm = PMF.get().getPersistenceManager();
+	 DUBwiseProps props=new DUBwiseProps();	
+	 
+	 try {
+		 	InstallRecord rec= pm.getObjectById(InstallRecord.class, id);
+		 	props.set_code(rec.getCode());
+	 } finally {
+	    	 pm.close();
+	 }
+	 
+	 if (uri.endsWith(".jar"))
+    	 //response.setContentType("application/java-archive");
+	 	response.sendRedirect( InstallHelper.read_http_str(SourceInfoProvider.getDownloadURL() + "trunk/"+ props.getJARFileName() ));
+	
+ 
      else
-	 response.setContentType("text/vnd.sun.j2me.app-descriptor");
+     {
+    	 	response.setContentType("text/vnd.sun.j2me.app-descriptor");
+    	 	response.getWriter().print(InstallHelper.read_http_str(SourceInfoProvider.getDownloadURL() + "trunk/"+ props.getJADFileName() ).replaceFirst("MIDlet-Jar-URL: ","MIDlet-Jar-URL: "+SourceInfoProvider.getDownloadURL()+"trunk/") );
+    	 	response.getWriter().print("MIDlet-Install-Notify: " + SourceInfoProvider.install_notify_URL() + id+"\n");
+    	 	response.getWriter().print("MIDlet-Delete-Notify: " + SourceInfoProvider.delete_notify_URL() + id + "\n") ;
+    	 	
+     }
+	 
+	 
+	 
+	 	
 
-
-     response.getWriter().println("Hello, world" + request.getRequestURI()  );
+     
+	
+	     // a .last function for array like in ruby would make this less ugly ,,,
+            
   }
 
 }
