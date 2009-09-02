@@ -25,11 +25,12 @@ Long id=Long.parseLong(request.getParameter("id"));
 PersistentDevice device=pm.getObjectById(PersistentDevice.class, id);
  
  %>
+<div class="post">
+ <h1 class="title"><%= device.getPlatform() %></h1>
+ <div class="entry">
 
-<b><%= device.getPlatform() %></b><br/>
 <pre><%= device.info_text() %></pre>  
 
-<br/>
-
+</div></div>
 <%@ include file='layout_s.jsp' %>
 

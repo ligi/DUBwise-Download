@@ -16,6 +16,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 import org.ligi.dubwise.download.PMF;
+import org.ligi.dubwise.download.PersistentUniqueDevice;
 
 public class PostDeviceInfos extends HttpServlet {
     private static final Logger log = Logger.getLogger( EnterCodeServlet.class.getName());
@@ -66,8 +67,15 @@ public class PostDeviceInfos extends HttpServlet {
 	
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
-            pm.makePersistent(device_record);
-	    log.log(Level.WARNING,"Device made persistent") ;
+           pm.makePersistent(device_record);
+           log.log(Level.WARNING,"Device made persistent") ;
+	    
+           try { pm.getObjectById( PersistentUniqueDevice.class, device_record.getPlatform()); }
+           catch (Exception e)
+	    		{	
+	    			PersistentUniqueDevice u_device=new PersistentUniqueDevice(device_record.getPlatform(),device_record.getId());
+	    			pm.makePersistent(u_device);
+	    		}	 
 	} finally {
             pm.close();
         }

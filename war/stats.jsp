@@ -4,6 +4,7 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="org.ligi.dubwise.download.PersistentUniqueDevice" %>
 <%@ page import="org.ligi.dubwise.download.PersistentDevice" %>
 <%@ page import="org.ligi.dubwise.download.CodeRecorder" %>
 <%@ page import="org.ligi.dubwise.download.BuildRecord" %>
@@ -89,20 +90,19 @@ Build Records:
 <div class="post">
  <h1 class="title">Devices:</h1>
  <div class="entry">
-
+<ul>
 <%                            
-     query = "select from " + PersistentDevice.class.getName() + " order by date desc range 0,5";
-    List<PersistentDevice> devices = (List<PersistentDevice>) pm.newQuery(query).execute();
+     query = "select from " + PersistentUniqueDevice.class.getName() ;
+    List<PersistentUniqueDevice> devices = (List<PersistentUniqueDevice>) pm.newQuery(query).execute();
 
-  for (PersistentDevice d : devices) {
+    
+  for (PersistentUniqueDevice d : devices) {
 
 %>
-<%= d.getPlatform() %>
-<%= d.getDate() %><br/>
-<br/>
-
+<li><a href="device_info.jsp?id=<%= d.getExampleDeviceId() %>"><%= d.getPlatform() %></a></li>
 
 <% } %>
+</ul>
 </div></div>
 <% } %>
 

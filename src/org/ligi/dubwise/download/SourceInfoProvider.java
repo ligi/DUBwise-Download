@@ -43,9 +43,11 @@ public class SourceInfoProvider {
 	// couldnt get it from the cache - refetch
 	
 	String res;
+	String[] res_a;
 	try
 	    {
-		res=InstallHelper.read_http_str(getDownloadURL()+"trunk/version");
+		res_a=InstallHelper.read_http_str(getDownloadURL()+"trunk/version").split("\\.");
+			res=res_a[0]+"."+res_a[1]+res_a[2];
 		cache.put(cache_key_installer_version,res);
 	    }
 	catch (Exception e) { res= "error";}
@@ -57,7 +59,7 @@ public class SourceInfoProvider {
 	Cache cache = null;
 	try {
 	    cache = CacheManager.getInstance().getCacheFactory().createCache(Collections.emptyMap());
-	    cache.put(cache_key_installer_version, InstallHelper.read_http_str(getDownloadURL()+"trunk/version"));
+	    cache.put(cache_key_installer_version, null);
 	} catch (Exception e) {	}
 
     }
