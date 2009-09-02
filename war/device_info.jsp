@@ -26,8 +26,8 @@ PersistentDevice device=pm.getObjectById(PersistentDevice.class, id);
  
  %>
 
-<%= device.getPlatform() %><br/>
-<%= device.toString() %>  
+<b><%= device.getPlatform() %></b><br/>
+<pre><%= device.info_text() %></pre>  
 
 <br/>
 
