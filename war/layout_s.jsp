@@ -44,7 +44,7 @@
 				<li>
 					<h2>Credits</h2>
 					
-					</div>
+					<div>
 					<img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"
 alt="Powered by Google App Engine" />
 	     	       	   		</div>
@@ -75,14 +75,17 @@ var sc_click_stat=1;
 var sc_security="4311d1f6"; 
 </script>
 
-<script type="text/javascript"
-src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
-class="statcounter"><a title="counter customizable"
-href="http://www.statcounter.com/free_hit_counter.html"
-target="_blank"><img class="statcounter"
-src="http://c.statcounter.com/4944502/0/4311d1f6/1/"
-alt="counter customizable" ></a></div></noscript>
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter">
+<a title="counter customizable" href="http://www.statcounter.com/free_hit_counter.html" target="_blank">
+<img class="statcounter" src="http://c.statcounter.com/4944502/0/4311d1f6/1/" alt="counter customizable" />
+</a>
+</div></noscript>
  <!-- End of StatCounter Code -->
+
+</div> <!--  page -->
+
+</div> <!--  wrapper -->
 
 </body>
 </html>
