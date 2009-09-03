@@ -41,7 +41,7 @@ public class EnterCodeServlet extends HttpServlet {
 	    {
 		String url_to_redirect=SourceInfoProvider.getStableDownloadURL();
 		
-		if (req.getParameter("down_jar_btn")==null)
+		if (req.getParameter("down_jar_btn")!=null)
 				url_to_redirect+=dubwise_props.getJARFileName();
 		else
 				url_to_redirect+=dubwise_props.getJADFileName();
