@@ -46,7 +46,7 @@ public class SourceInfoProvider {
 	String[] res_a;
 	try
 	    {
-		res_a=InstallHelper.read_http_str(getDownloadURL()+"trunk/version").split("\\.");
+		res_a=InstallHelper.read_http_str(getDownloadURL()+"trunk/version").replace("\n", "").replace("\r", "") .split("\\.");
 			res=res_a[0]+"."+res_a[1]+res_a[2];
 		cache.put(cache_key_installer_version,res);
 	    }
