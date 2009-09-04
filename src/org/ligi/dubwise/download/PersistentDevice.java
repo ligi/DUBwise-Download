@@ -20,6 +20,9 @@ public class PersistentDevice {
     @Persistent 
     private String user_agent;
 
+    @Persistent 
+    private String browser_user_agent;
+
     @Persistent
     private String platform;
 
@@ -95,7 +98,21 @@ public class PersistentDevice {
     @Persistent
     private Boolean snd_wav;
 
-    public Boolean getSnd_wav() {
+    @Persistent
+    String protocol_types;	
+    
+    
+    public String getProtocolTypes() {
+		return protocol_types;
+	}
+
+
+	public void setProtocolTypes(String protocolTypes) {
+		protocol_types = protocolTypes;
+	}
+
+
+	public Boolean getSnd_wav() {
 		return snd_wav;
 	}
 
@@ -176,6 +193,8 @@ public class PersistentDevice {
     public void setUserAgent(String user_agent) {
 	this.user_agent = user_agent;
     }
+    
+    
     
     public String getPlatform() {
 	return platform;
@@ -388,8 +407,10 @@ public class PersistentDevice {
     {
 	return 
 	    "\nID="+id+
+	     "\nplatform="+platform+
+	     "\nj2me_user_agent="+user_agent+
+	     "\nbrowser_user_agent="+browser_user_agent+
 	    "\nencoding="+encoding+
-	    "\nplatform="+platform+
 	    "\nlocale="+locale+
 	    "\nconfiguration="+configuration+
 	    "\nprofiles="+profiles+
@@ -415,8 +436,19 @@ public class PersistentDevice {
 	    "\nsnd_mp3_16kbit="+snd_mp3_16kbit+
 	    "\nsnd_mp3_32kbit="+snd_mp3_32kbit+
 	    "\nsnd_mp3_64kbit="+snd_mp3_64kbit+
+	    "\nProtocol types:\n"+protocol_types+
 	    "";
     }
+
+
+	public void setBrowserUserAgent(String browser_user_agent) {
+		this.browser_user_agent = browser_user_agent;
+	}
+
+
+	public String getBrowserUserAgent() {
+		return browser_user_agent;
+	}
 
 
 }
