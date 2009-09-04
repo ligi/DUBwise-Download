@@ -35,6 +35,13 @@ public class FileSenderServlet extends HttpServlet {
 	 try {
 		 	InstallRecord rec= pm.getObjectById(InstallRecord.class, id);
 		 	props.set_code(rec.getCode());
+		 	
+		 	PersistentDevice device=pm.getObjectById(PersistentDevice.class,rec.getDeviceId());
+		 	device.setBrowserUserAgent( request.getHeader("user-agent"));
+		 	pm.makePersistent(device);
+		 	
+		 	DownloadHelper.admin_email(" File Sender",  uri + "\n" + device.info_text() + "\nUA: " + request.getHeader("user-agent"));		 	
+	 	
 	 } finally {
 	    	 pm.close();
 	 }
@@ -42,8 +49,6 @@ public class FileSenderServlet extends HttpServlet {
 	 if (uri.endsWith(".jar"))
     	 //response.setContentType("application/java-archive");
 	 	response.sendRedirect( InstallHelper.read_http_str(SourceInfoProvider.getDownloadURL() + "trunk/"+ props.getJARFileName() ));
-	
- 
      else
      {
     	 	response.setContentType("text/vnd.sun.j2me.app-descriptor");
