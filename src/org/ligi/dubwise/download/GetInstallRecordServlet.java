@@ -36,25 +36,8 @@ public class GetInstallRecordServlet extends HttpServlet {
             pm.close();
         }
 
-	// send mail
-	Properties props = new Properties();
-        Session session = Session.getDefaultInstance(props, null);
+        DownloadHelper.admin_email("Install Request", "code:"+req.getParameter("code") + " \nid: "+install_record.getId() + " \nsource:" +req.getParameter("source"));
 
-        try {
-            Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("marcus.bueschleb@googlemail.com"));
-            msg.addRecipient(Message.RecipientType.TO,
-                             new InternetAddress("ligi@ligi.de"));
-            msg.setSubject("DUBwise Install Request");
-            msg.setText("code:"+req.getParameter("code") + " id: "+install_record.getId() + "source:" +req.getParameter("source") ) ;
-            Transport.send(msg);
-	    log.log(Level.INFO,"Email Send code" + req.getParameter("code") );
-
-        } catch (Exception e) {
-	    log.log(Level.WARNING,"exception while sending mail " +e );
-            // dont care if failing
-        } 
- 
 	resp.setContentType("text/plain");
 	resp.getWriter().print(""+install_record.getId());
 
