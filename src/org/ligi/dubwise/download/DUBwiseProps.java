@@ -11,7 +11,7 @@ public class DUBwiseProps
     //    public String[] sound_strings={"en_speedy","en_wav","de_tts","de_wav","de_64kbit_tts","wav","no_voice"};
     
 
-
+String version_str="-v"+SourceInfoProvider.act_version();
     // must be sorted - width up
     public int[][] res_vals = {{128,128},{176,220},{200,300},{240,320},{340,400}, {480,640} };
     public String[] res_strings;
@@ -221,7 +221,7 @@ public class DUBwiseProps
 
     public String _getFileName()
     {
-	return "DUBwise-"+res_str()+"-" + sound_str() + "-"  + firmware_str() + cldc_str() + fileapi_str() + bt_str() + devicecontrol_str() + map_str() ;
+	return "DUBwise" + version_str + "-"+res_str()+"-" + sound_str() + "-"  + firmware_str() + cldc_str() + fileapi_str() + bt_str() + devicecontrol_str() + map_str() ;
     }
 
 
