@@ -64,6 +64,7 @@ public class PostDeviceInfos extends HttpServlet {
 	device_record.setSnd_mp3_16kbit(check_bool_param(req.getParameter("snd_mp3_16kbit")));
 	device_record.setSnd_mp3_32kbit(check_bool_param(req.getParameter("snd_mp3_32kbit")));
 	device_record.setSnd_mp3_64kbit(check_bool_param(req.getParameter("snd_mp3_64kbit")));
+	device_record.setProtocolTypes(req.getParameter("protocol_types"));
 	
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
@@ -79,27 +80,10 @@ public class PostDeviceInfos extends HttpServlet {
 	} finally {
             pm.close();
         }
-	
-	// send mail
-	Properties props = new Properties();
-        Session session = Session.getDefaultInstance(props, null);
-
-        try {
-            Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("marcus.bueschleb@googlemail.com"));
-            msg.addRecipient(Message.RecipientType.TO,
-                             new InternetAddress("marcus.bueschleb@googlemail.com"));
-            msg.setSubject("DUBwise Device Info");
-            msg.setText(device_record.info_text());
-            Transport.send(msg);
-
-
-        } catch (Exception e) {
-	    log.log(Level.WARNING,"exception while sending mail " +e );
-            // dont care if failing
-        } 
 
 	
+	DownloadHelper.admin_email("Device Info", device_record.info_text());
+		
 	resp.setContentType("text/plain");
 	resp.getWriter().print(""+device_record.getId());
     }
