@@ -35,14 +35,7 @@ public class NotifyServlet extends HttpServlet {
 				{
 				install_res+=(char)c;
 				}
-				
 		
-		
-		
-		// send mail
-		Properties props = new Properties();
-	        Session session = Session.getDefaultInstance(props, null);
-
 	        boolean install_notify=false;
 	        boolean delete_notify=false;
 	        
@@ -72,29 +65,13 @@ public class NotifyServlet extends HttpServlet {
 	   	    	 pm.close();
 	   	 }
 	        
-	        
-	        try {
-	            Message msg = new MimeMessage(session);
-	            msg.setFrom(new InternetAddress("marcus.bueschleb@googlemail.com"));
-	            msg.addRecipient(Message.RecipientType.TO,
-	                             new InternetAddress("ligi@ligi.de"));
-	            String subj="DUBwise ";
-	            if (install_notify) subj+="Install Notify";
-	            else if (delete_notify) subj+="Delete Notify";
-	            else  subj+="Notify Err";
-	            
-	            msg.setSubject(subj);
-	           msg.setText("Install ID: " +id_str + "\nResult: "+install_res + "\nDevice ID: " + device_id);
-	            Transport.send(msg);
-	            resp.getWriter().println("send OK");
-
-	        } catch (Exception e) {
-		    //log.log(Level.	WARNING,"exception while sending mail " +e );
-	            // dont care if failing
-	        	resp.getWriter().println("send ERR\n" + e.toString());
-	        } 
-	        
-
-
+	   	 // mail the result
+	   	String subj="DUBwise ";
+        if (install_notify) subj+="Install Notify";
+        else if (delete_notify) subj+="Delete Notify";
+        else  subj+="Notify Err";
+        
+        DownloadHelper.admin_email(subj, "Install ID: " +id_str + "\nResult: "+install_res + "\nDevice ID: " + device_id);
+        
 	}
 }
