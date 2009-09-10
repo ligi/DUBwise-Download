@@ -136,13 +136,16 @@ public class DownloadBuildsServlet extends HttpServlet {
 
 	}*/
 
-    public void delete_all()
+    public String delete_all()
     {
+    	
     PersistenceManager pm = PMF.get().getPersistenceManager();
 
+    
+    
     Query query = pm.newQuery(BuildRecord.class);
-    query.setOrdering("id asc");
-
+    //query.setOrdering("id asc");
+    query.setRange(0,10);
     int del_count=0;
     try {
         List<BuildRecord> results = (List<BuildRecord>) query.execute();
@@ -155,12 +158,14 @@ public class DownloadBuildsServlet extends HttpServlet {
     } 
     catch (Exception e)
 	{
+        return "del-w:" + e.toString();
 	}
     finally {
         query.closeAll();
+        	
     }
 
-	
+    return "del:" + del_count;
     }
 
 
@@ -233,6 +238,7 @@ public class DownloadBuildsServlet extends HttpServlet {
 
     PersistenceManager pm = PMF.get().getPersistenceManager();
 
+    /*
     Query  query = pm.newQuery("select from org.ligi.dubwise.download.BuildRecord " +
                               "where update_flag == false");
     query.setRange(0,1);
@@ -280,9 +286,9 @@ public class DownloadBuildsServlet extends HttpServlet {
 	}
     
 
-
+*/
 	resp.setContentType("text/plain");
-	resp.getWriter().print("last:" +last_done);
+	resp.getWriter().print("last:" +delete_all());
 
 
     }

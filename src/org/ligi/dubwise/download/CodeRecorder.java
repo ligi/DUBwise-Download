@@ -23,10 +23,15 @@ public class CodeRecorder {
     @Persistent 
     private String user_agent;
 
-    public CodeRecorder( String code, Date date,String user_agent) {
+    @Persistent 
+    private String file_given;
+    
+    public CodeRecorder( String code, Date date,String user_agent,String file_given) {
+    	
         this.code = code;
         this.date = date;
-	this.user_agent = user_agent;
+        this.user_agent = user_agent;
+        this.file_given=file_given;
     }
 
     public Long getId() {

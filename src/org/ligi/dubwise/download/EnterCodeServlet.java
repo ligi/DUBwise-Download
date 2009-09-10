@@ -23,19 +23,6 @@ public class EnterCodeServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
                 throws IOException {
 
-
-	// store in Database
-        Date date = new Date();
-        CodeRecorder code_record = new CodeRecorder( req.getParameter("install_code"), date,req.getHeader("user-agent"));
-
-        PersistenceManager pm = PMF.get().getPersistenceManager();
-        try {
-            pm.makePersistent(code_record);
-        } finally {
-            pm.close();
-        }
-
-
 	DUBwiseProps dubwise_props=new DUBwiseProps();
 	if (dubwise_props.set_code(req.getParameter("install_code")))
 	    {
@@ -47,12 +34,20 @@ public class EnterCodeServlet extends HttpServlet {
 				url_to_redirect+=dubwise_props.getJADFileName();
 		
 		DownloadHelper.admin_email("Offline Download", "code: "+req.getParameter("install_code") +"\nfile" + url_to_redirect + "\nUA: " + req.getHeader("user-agent"));
-			        
+		
+		//	 	store in Database
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+            pm.makePersistent(new CodeRecorder( req.getParameter("install_code"), new Date(),req.getHeader("user-agent"),url_to_redirect));
+        } finally {
+            pm.close();
+        }
+        
 		resp.sendRedirect(url_to_redirect);
 	    	
 	    }
 	else
-	    resp.sendRedirect("download_by_code.jsp?wrongcode="+req.getParameter("install_code")) ;
+	    resp.sendRedirect("downloads.jsp?wrongcode="+req.getParameter("install_code")) ;
     }
 
 

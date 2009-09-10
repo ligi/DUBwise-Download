@@ -1,5 +1,5 @@
 <project name="Guestbook" default="datanucleusenhance">
-  <property name="sdk.dir" location="/home/ligi/bin/appengine-java-sdk-1.2.2" />
+  <property name="sdk.dir" location="/home/ligi/bin/appengine-java-sdk-1.2.5" />
 
   <import file="${sdk.dir}/config/user/ant-macros.xml" />
 
