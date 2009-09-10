@@ -7,6 +7,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import com.google.appengine.api.users.User;
+import com.google.appengine.api.datastore.Text;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class PersistentDevice {
@@ -48,7 +49,7 @@ public class PersistentDevice {
     private String sensor_api_version;
   
     @Persistent
-    private String comports;
+    private Text comports;
 
     @Persistent
     private Integer canvas_width;
@@ -99,15 +100,15 @@ public class PersistentDevice {
     private Boolean snd_wav;
 
     @Persistent
-    String protocol_types;	
+    private Text protocol_types;	
     
     
-    public String getProtocolTypes() {
+    public Text getProtocolTypes() {
 		return protocol_types;
 	}
 
 
-	public void setProtocolTypes(String protocolTypes) {
+	public void setProtocolTypes(Text protocolTypes) {
 		protocol_types = protocolTypes;
 	}
 
@@ -260,11 +261,11 @@ public class PersistentDevice {
 	this.sensor_api_version = sensor_api_version;
     }
 
-    public String getComPorts() {
+    public Text getComPorts() {
 	return comports;
     }
 
-    public void setComPorts(String comports) {
+    public void setComPorts(Text comports) {
 	this.comports = comports;
     }
 
@@ -400,49 +401,73 @@ public class PersistentDevice {
 	return rms_avail;
     }
 
+    public String comports_str()
+    {
+	try 
+	    {
+		// thre replacement gives the possibility to display on multiple lines - e.g. Nokia has long comport lists sometimes
+		return (""+comports).replace(",",", ");
+	    }
+	catch (Exception e)
+	    {
+		// there was a problem migrating from String to Text
+		return "old format";
+	    }
+    }
 
-
+    public String[][] info_array()
+    {
+	return new String[][]
+	    { 
+		{"ID",""+id },
+		{"Platform",platform },
+		{"j2me_user_agent",user_agent},
+		{"browser_user_agent",browser_user_agent },
+	        {"encoding",encoding},
+		{"locale",locale},
+		{"configuration",configuration},
+		{"profiles",profiles},
+		{"hostname",hostname},
+		{"location_api_version",location_api_version},
+		{"sensor_api_version",sensor_api_version},
+		{"comports",comports_str()}, 
+		{"canvas_width",""+canvas_width},
+		{"canvas_height",""+canvas_height},
+		{"canvas_full_width",""+canvas_full_width},
+		{"canvas_full_height",""+canvas_full_height},
+		{"rms_avail",""+rms_avail},
+		{"free_mem",""+free_mem},
+		{"total_mem",""+total_mem},
+		{"symbian",""+symbian},
+		{"sensorapi",""+sensorapi},
+		{"fileapi",""+fileapi},
+		{"cldc11",""+cldc11},
+		{"bluetooth",""+bluetooth},
+		{"devicecontrol",""+devicecontrol},
+		{"jsr179",""+jsr179},
+		{"snd_wav",""+snd_wav},
+		{"snd_mp3_16kbit",""+snd_mp3_16kbit},
+		{"snd_mp3_32kbit",""+snd_mp3_32kbit},
+		{"snd_mp3_64kbit",""+snd_mp3_64kbit},
+		{"Protocol types",""+protocol_types}
+	    };
+    }
+	
 
     public String info_text()
     {
-	return 
-	    "\nID="+id+
-	     "\nplatform="+platform+
-	     "\nj2me_user_agent="+user_agent+
-	     "\nbrowser_user_agent="+browser_user_agent+
-	    "\nencoding="+encoding+
-	    "\nlocale="+locale+
-	    "\nconfiguration="+configuration+
-	    "\nprofiles="+profiles+
-	    "\nhostname="+hostname+
-	    "\nlocation_api_version="+location_api_version+
-	    "\nsensor_api_version="+sensor_api_version+
-	    "\ncomports="+comports+
-	    "\ncanvas_width="+""+canvas_width+
-	    "\ncanvas_height="+""+canvas_height+
-	    "\ncanvas_full_width="+""+canvas_full_width+
-	    "\ncanvas_full_height="+""+canvas_full_height+
-	    "\nrms_avail="+""+rms_avail+
-	    "\nfree_mem="+""+free_mem+
-	    "\ntotal_mem="+""+total_mem+
-	    "\nsymbian="+symbian+
-	    "\nsensorapi="+sensorapi+
-	    "\nfileapi="+fileapi+
-	    "\ncldc11="+cldc11+
-	    "\nbluetooth="+bluetooth+
-	    "\ndevicecontrol="+devicecontrol+
-	    "\njsr179="+jsr179+
-	    "\nsnd_wav="+snd_wav+
-	    "\nsnd_mp3_16kbit="+snd_mp3_16kbit+
-	    "\nsnd_mp3_32kbit="+snd_mp3_32kbit+
-	    "\nsnd_mp3_64kbit="+snd_mp3_64kbit+
-	    "\nProtocol types:\n"+protocol_types+
-	    "";
+	String res="";
+	String[][] info_arr=info_array();
+
+	for ( int i =0;i<info_arr.length;i++)
+	    res+=info_arr[i][0] + " = " + info_arr[i][1] + "\n";
+	return res;
+	   
     }
 
 
 	public void setBrowserUserAgent(String browser_user_agent) {
-		this.browser_user_agent = browser_user_agent;
+		this.browser_user_agent  =  browser_user_agent;
 	}
 
 
