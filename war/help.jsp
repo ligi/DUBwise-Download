@@ -11,7 +11,7 @@
 
 <ul>
 
-<li>Download the  <a href="http://www.mikrokopter.de/ucwiki/en/DUBwiseInstaller">DUBwise J2ME Installer</a> from <a href="get_installer.jsp">here</a> 
+<li>Download the  <a href="http://www.mikrokopter.de/ucwiki/en/DUBwiseInstaller">DUBwise J2ME Installer</a> from <a href="downloads.jsp">here</a> 
 </li>
 <li>
 run it on your mobile phone
