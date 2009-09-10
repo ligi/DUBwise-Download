@@ -52,13 +52,17 @@ alt="Powered by Google App Engine" />
 
 			</ul>
 
-	</div>
+			</div> <!-- sidebar-btbtm -->
+		</div> <!-- sidebar-content -->
+	</div> <!-- sidebar -->
 	<!-- end #sidebar -->
 	<div style="clear:both; margin:0;"></div>
-</div>
+
 <!-- end #page -->
 
-</div>
+</div> <!--  page -->
+
+</div> <!--  wrapper -->
 
 <div id="footer">
 	<p>(cc) 2009. Some Rights Reserved. Code by <a href="www.ligi.de">Ligi</a> Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
@@ -83,9 +87,7 @@ var sc_security="4311d1f6";
 </div></noscript>
  <!-- End of StatCounter Code -->
 
-</div> <!--  page -->
 
-</div> <!--  wrapper -->
 
 </body>
 </html>

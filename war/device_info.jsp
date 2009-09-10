@@ -29,7 +29,24 @@ PersistentDevice device=pm.getObjectById(PersistentDevice.class, id);
  <h1 class="title"><%= device.getPlatform() %></h1>
  <div class="entry">
 
-<pre><%= device.info_text() %></pre>  
+<table border="1">
+
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+
+<% String[][] info_arr=device.info_array(); %>
+
+<% for (int i=0;i<info_arr.length;i++) { %>
+<tr>
+<td><b><%= info_arr[i][0] %></b></td>
+<td><%= info_arr[i][1] %></td>
+</tr>
+<% } // for %>
+
+
+</table> 
 
 </div></div>
 <%@ include file='layout_s.jsp' %>

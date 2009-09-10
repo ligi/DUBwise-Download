@@ -17,9 +17,25 @@
 <%@ include file='layout_p.jsp' %>
 
 
-<a href="?what=install_records">Installations</a> |
-<a href="?what=device_records">Devices</a> |
-<a href="?what=build_records">Builds</a> |
+		<div class="post">
+			<h2 class="title">Developer</h2>
+			<div class="entry">
+				<p>
+					When users install via the online install-method the installer collects information about the device and the install process.
+					These  informations ( like screensize , API's , .. ) are collected to help improving dubwise on special device conditions. 
+					But there is another use of it - developers of j2me applications can use these informations to get deeper insight about devices. 
+					There are very big devices information sites on the internet - but they are often missing  important information. 
+					</p>
+					<ul>
+						<li><a href="
+						?what=device_records">Devices</a> ( a list of all devices which used the installer )</li> 
+						<li><a href="?what=install_records">Install Log</a></li> 
+					</ul>
+					
+
+<div style="clear:both;"></div>	
+				</div>
+		</div>
 
 <%
 PersistenceManager pm = PMF.get().getPersistenceManager();
