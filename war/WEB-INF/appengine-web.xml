@@ -15,5 +15,6 @@
      <include path="/**.jpg"/>
      <include path="/**.gif"/>
      <include path="/**.css"/>
+     <include path="/robots.txt"/>
     </static-files>
 </appengine-web-app>
