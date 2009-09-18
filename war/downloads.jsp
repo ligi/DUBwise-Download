@@ -4,9 +4,9 @@
 	<h1 class="title">DUBwise Installer</h1>
 	<div class="entry">
 	   <ul>
-	     <li><a href="/download/DUBwiseInstaller.jar">DUBwiseInstaller.jar</a></li>
+	     <li><a href="<%= SourceInfoProvider.installer_extern_base_URL() %>.jar">DUBwiseInstaller.jar</a></li>
 	     
-	     <li> <a href="/download/DUBwiseInstaller.jad">DUBwiseInstaller.jad</a></li>
+	     <li> <a href="<%= SourceInfoProvider.installer_extern_base_URL() %>.jad">DUBwiseInstaller.jad</a></li>
 	     </ul>
 	</div>
 </div>
@@ -55,7 +55,7 @@ on how to get the install-code below.</b> <br />
 
 
 
-
+<a name="windows_mobile"></a>
 <div class="post">
 	<h1 class="title">DUBwise for Windows Mobile</h1>
 	<div class="entry">
