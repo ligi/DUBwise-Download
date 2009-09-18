@@ -27,8 +27,10 @@ public class GetInstallRecordServlet extends HttpServlet {
 
 	// store in Database
         Date date = new Date();
-        InstallRecord install_record = new InstallRecord(req.getParameter("code"),date,new Long(req.getParameter("device_id")));
+        InstallRecord install_record = new InstallRecord(req.getParameter("code"),date,new Long(req.getParameter("device_id")  ),SourceInfoProvider.act_version()    );
         install_record.setInstallerSource(req.getParameter("source"));
+        install_record.setInstallerVersion(req.getParameter("installer_version"));
+        install_record.setInstallerOption(req.getParameter("installoption"));
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
             pm.makePersistent(install_record);
