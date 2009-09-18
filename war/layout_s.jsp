@@ -21,7 +21,7 @@
 					
 					<ul>
 
-						<li><b>Installer: </b>0.12</li>	
+						<li><b>Installer: </b><%= SourceInfoProvider.act_installer_version() %></li>	
 						<li><b>DUBwise: </b><%= SourceInfoProvider.act_version() %>	</li>	
 					</ul>
 				</li>
