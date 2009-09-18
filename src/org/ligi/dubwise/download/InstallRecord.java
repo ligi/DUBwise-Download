@@ -26,18 +26,36 @@ public class InstallRecord {
     @Persistent
     private String delete_result;
 
-
     @Persistent
     private String installer_source;
 
-    
+    @Persistent
+    private String version;
+
+    @Persistent
+    private String installer_version;
+
+    @Persistent
+    private String installer_option;
+
+    @Persistent
+    private Boolean jad_requested;
+
+    @Persistent
+    private Boolean jar_requested;
+
     @Persistent
     private Date date;
 
-    public InstallRecord(String code, Date date,Long device_id) {
+    public InstallRecord(String code, Date date,Long device_id,String version) {
 	this.code = code;
 	this.device_id=device_id;
         this.date = date;
+	this.version=version;
+	jad_requested=false;
+	jar_requested=false;
+	installer_version="";
+	installer_option="";
     }
 
     public Long getId() {
@@ -52,17 +70,58 @@ public class InstallRecord {
         this.date = date;
     }
 
+    public Boolean isJADRequested(){
+	return jad_requested;
+    }
 
-
+    public Boolean isJARRequested(){
+	return jar_requested;
+    }
 
     public Long getDeviceId()
     {
 	return device_id;
     }
 
+
+    public String getVersion()
+    {
+	return version;
+    }
+
+
+    public void setJADRequested(Boolean jad_requested)
+    {
+	this.jad_requested= jad_requested;
+    }
+
+    public void setJARRequested(Boolean jar_requested)
+    {
+	this.jar_requested= jar_requested;
+    }
+
+
     public void setDeviceId(Long device_id)
     {
 	this.device_id=device_id;
+    }
+
+
+    public void setInstallerVersion(String i_version) {
+        this.installer_version =  i_version;
+    }
+
+    public void setInstallerOption(String i_option) {
+        this.installer_option =  i_option;
+    }
+
+
+    public String getInstallerVersion() {
+        return this.installer_version;
+    }
+
+    public String getInstallerOption() {
+        return this.installer_option;
     }
 
 
