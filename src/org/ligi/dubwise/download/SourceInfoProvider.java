@@ -22,6 +22,10 @@ public class SourceInfoProvider {
     public final static String cache_key_installer_version="source_info_installer_version";
   
 
+    public static String act_installer_version()
+    {
+	return "0.18";
+    }
 
     public static String act_version()
     {
@@ -90,5 +94,19 @@ public class SourceInfoProvider {
     {
     	return "http://dubwise-download.appspot.com/notify?delete=";
     }
+
+    public static String installer_extern_base_URL()
+    {
+    	return "http://dubwise-download.appspot.com/midlet_download/DUBwiseInstaller";
+    }
+
+
+    public static String installer_source_base_URL()
+    {
+    	return getDownloadURL()+"DUBwiseInstaller";
+    }
+
+
+
     
 }
