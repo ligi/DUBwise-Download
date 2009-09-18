@@ -30,6 +30,12 @@
 <table border="1">
 <tr>
 <th>Device</th>
+<th>IVer</th>
+<th>DVer</th>
+<th>option</th>
+
+<th>JAD</th>
+<th>JAR</th>
 <th>Result</th>
 <th>Source</th>
 </tr>
@@ -44,6 +50,11 @@ PersistentDevice i_device=pm.getObjectById(PersistentDevice.class, i.getDeviceId
 %>
 <tr>
 <td><a href="device_info.jsp?id=<%=i_device.getId() %>"><%=i_device.getPlatform() %></a> </td>
+<td><%= i.getInstallerVersion() %></td>
+<td><%= i.getVersion() %></td>
+<td><%= i.isJADRequested() %></td>
+<td><%= i.isJARRequested() %></td>
+<td><%= i.getInstallerOption() %></td>
 
 <% if (i.getInstallResult()==null) { %>
  <td style="background-color:yellow;color:black" >none</td>
