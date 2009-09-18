@@ -103,14 +103,23 @@ public class PersistentDevice {
     private Text protocol_types;	
     
     
-    public Text getProtocolTypes() {
-		return protocol_types;
+    public String getProtocolTypes() {
+	return protocol_types.getValue();
 	}
 
 
-	public void setProtocolTypes(Text protocolTypes) {
-		protocol_types = protocolTypes;
-	}
+    public void setProtocolTypes(String protocolTypes) {
+	
+	try 
+	    {
+		protocol_types = new Text(protocolTypes);
+	    }
+	catch (Exception e)
+	    {
+		protocol_types=new Text("");
+	    }
+	protocol_types=new Text("");
+    }
 
 
 	public Boolean getSnd_wav() {
@@ -261,12 +270,21 @@ public class PersistentDevice {
 	this.sensor_api_version = sensor_api_version;
     }
 
-    public Text getComPorts() {
-	return comports;
+    public String getComPorts() {
+	return comports.getValue();
     }
 
-    public void setComPorts(Text comports) {
-	this.comports = comports;
+    public void setComPorts(String comports) {
+
+	    try 
+		{
+		    this.comports = new Text(comports);
+		}
+	    catch (Exception e)
+		{
+		    this.comports = new Text("");
+		}
+	    this.comports = new Text("");
     }
 
 
