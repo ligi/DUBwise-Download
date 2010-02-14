@@ -4,14 +4,9 @@ import javax.cache.Cache;
 import javax.cache.CacheException;
 import javax.cache.CacheManager;
 import java.util.Collections;
+import java.util.Random;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.net.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.InputStream;
-import java.io.IOException;
 import java.io.*;
 import java.nio.*;
 
@@ -50,7 +45,9 @@ public class SourceInfoProvider {
 	String[] res_a;
 	try
 	    {
-		res_a=InstallHelper.read_http_str(getDownloadURL()+"trunk/version").replace("\n", "").replace("\r", "") .split("\\.");
+		// had a caching problem with urlfetch - solved with this hint http://osdir.com/ml/GoogleAppEngine/2009-03/msg00125.html
+		Random random=new Random();
+		res_a=InstallHelper.read_http_str(getDownloadURL()+"trunk/version?"+random.nextInt()).replace("\n", "").replace("\r", "") .split("\\.");
 			res=res_a[0]+"."+res_a[1]+res_a[2];
 		cache.put(cache_key_installer_version,res);
 	    }
