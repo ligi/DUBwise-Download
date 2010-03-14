@@ -2,9 +2,29 @@
 
 
 <a name="get_code"></a>
+
 		<div class="post">
-			<h2 class="title">How to get the Install Code</h2>
+			<h2 class="title">Android</h2>
 			<div class="entry">
+				<p>
+With Android it is very easy - just go to the market and search for DUBwise or use this QR-Code:<br/>
+<img src="http://chart.apis.google.com/chart?cht=qr&chs=256x256&chl=http://dubwise_download.appspot.com/help.jsp"/><br/>
+With your Android Handset you can also direclty use this <a href="market://search/?q=pname:org.ligi.android.dubwise">Market Link</a>.
+
+				</p>
+			</div>
+		</div>
+
+
+		<div class="post">
+			<h2 class="title">J2ME</h2>
+			<div class="entry">
+				<p>
+					You have the choice of mainly 2 Install Methods. 
+					You can either use the online-install method - 
+					this is the easyest way but it might produce some traffic costs by your provider. 
+					Or you download your version via the install code calculated by the installer. This is how you use the Download by Install Code: 
+				</p>		
 				<p>
 
 <img style="float:left;margin-right:20px" src="images/installer_screenshot.png"/>
@@ -22,6 +42,12 @@ select "show Install Code" as Install Method
 <li>
 press OK and remember the Install-Code shown
 </li>
+<li>
+go to <a href="http://dubwise-download.appspot.com/downloads.jsp#code">this page </a> 
+</li>
+<li>
+enter the Install-Code and Download the JAR ( on some Phones - e.g. some Nokias you will need the JAD too )
+</li>
 </ul>
 
 </p>
@@ -35,7 +61,7 @@ press OK and remember the Install-Code shown
 
 <a name="windows_mobile"></a>
 		<div class="post">
-			<h2 class="title">How to install on Windows Mobile</h2>
+			<h2 class="title">Windows Mobile</h2>
 			<div class="entry">
 			<br/>
 			<b>

@@ -11,6 +11,7 @@
 	</div>
 </div>
 
+<a name="code"></a>
 <div class="post">
 <h2 class="title">Get DUBwise via Install Code</h2>
 <div class="entry">

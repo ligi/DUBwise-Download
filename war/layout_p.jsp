@@ -42,9 +42,8 @@ Released   : 20081230
 
 	<div id="menu">
 		<ul>
-			<li ><a href="/index.jsp">Home</a></li>
-			<li ><a href="/downloads.jsp">Downloads</a></li>
 			<li><a href="/help.jsp">Help</a></li>
+			<li ><a href="/downloads.jsp">Downloads</a></li>
 			<li><a href="/developer.jsp">Developer</a></li>
 		</ul>
 	</div>

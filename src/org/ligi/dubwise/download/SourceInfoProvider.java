@@ -19,7 +19,7 @@ public class SourceInfoProvider {
 
     public static String act_installer_version()
     {
-	return "0.18";
+	return "0.19";
     }
 
     public static String act_version()
