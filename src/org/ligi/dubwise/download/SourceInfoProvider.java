@@ -60,7 +60,7 @@ public class SourceInfoProvider {
      * @return the URL where the binaries are
      */
     public static String getDownloadURL() {
-    	return "http://ligi.selfip.org/ligi/dubwise_dl/";
+    	return "http://dubwise.freestone.net/";
     }
     
     public static String getStableDownloadURL() {
