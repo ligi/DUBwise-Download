@@ -25,6 +25,18 @@
 						<li><b>DUBwise: </b><%= SourceInfoProvider.act_version() %>	</li>	
 					</ul>
 				</li>
+				
+				<li>
+				<h2>Support</h2>
+				
+				<ul><li>
+				<script type="text/javascript">
+	var flattr_url = 'http://mikrokopter.de/ucwiki/en/DUBwise';
+	var flattr_btn='compact';
+</script>
+<script src="http://api.flattr.com/button/load.js" type="text/javascript"></script>
+				</li></ul>
+				</li>
 
 				<li>
 					<h2>Links</h2>
@@ -42,7 +54,7 @@
 
 
 				<li>
-					<h2>Credits</h2>
+					<h2>powered by</h2>
 					
 					<div>
 					<img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"

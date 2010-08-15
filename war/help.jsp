@@ -4,6 +4,23 @@
 <a name="get_code"></a>
 
 		<div class="post">
+
+			<h2 class="title">What is DUBwise</h2>
+			<div class="entry">
+				<p>
+				You can have a look in <a href="http://www.mikrokopter.de/ucwiki/en/DUBwise?action=AttachFile&do=get&target=dubwise.pdf">this pdf</a> for an overview or <a href="http://www.mikrokopter.de/ucwiki/en/DUBwise">this wiki</a> for details.
+				<br>Then it depends on your Device:</br>
+				<ul>
+				<li><a href="#android">Android</a></li>
+				<li><a href="#j2me">J2ME</a></li>
+				<li><a href="#windows_mobile">Windows Mobile</a></li>
+				</ul> 
+				</p>
+			</div>
+		</div>
+
+		<div class="post">
+			<a name="android"></a>
 			<h2 class="title">Android</h2>
 			<div class="entry">
 				<p>
@@ -15,7 +32,7 @@ With your Android Handset you can also direclty use this <a href="market://searc
 			</div>
 		</div>
 
-
+<a name="j2me"></a>
 		<div class="post">
 			<h2 class="title">J2ME</h2>
 			<div class="entry">

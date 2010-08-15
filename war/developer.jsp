@@ -27,7 +27,13 @@
 						<li><a href="install_list.jsp">Install Log</a></li> 
 					</ul>
 					<a href="http://github.com/ligi/DUBwise-J2ME-Installer/tree/master">Here</a> you can find the SourceCode of the Installer to see how the Information is collected.
-<div style="clear:both;"></div>	
+					<br/>
+					<a href="http://github.com/ligi/DUBwise">Here</a> you can find the SourceCode of DUBwise.
+					
+<div style="clear:both;">
+
+
+</div>	
 				</div>
 		</div>
 
